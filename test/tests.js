@@ -16,7 +16,6 @@ test('returns random number between 0 and length of words array', (assert) => {
 });
 
 // wordGenerator
-
 test('returns first word from input array when index is 0', (assert) => {
     // Arrange
     const wordArray = ['abc', 'def', 'ghi'];
@@ -43,11 +42,7 @@ test('returns word at index 2 from input array when index is 2', (assert) => {
     assert.equal(result, expected);
 });
 
-// Create the letters of the "Word to Guess". (You might not hide them initially during development so you can "see" that word is loading correctly. Otherwise, you will need to inspect with the Dev Tools)
-
-// In: word
-// Out: nothing, but in function render div elements
-
+// addLetterDivs
 test('makes a div to contain letter for each letter of word', (assert) => {
     // Arrange
     const word = 'ab';
@@ -60,4 +55,17 @@ test('makes a div to contain letter for each letter of word', (assert) => {
     // Assert
     const parentContent = parentDiv.innerHTML;
     assert.equal(parentContent, expected);
+});
+
+// checkIfLetter
+test('return false if not a letter', (assert) => {
+    // Arrange
+    const inputString = 'notaletteriamastring';
+    const expected = false;
+
+    // Act
+    const actual = checkIfLetter(inputString);
+
+    // Assert
+    assert.equal(actual, expected);
 });
