@@ -86,3 +86,7 @@ body {
 .letter-and-line {
     display: inline-block;
 }
+
+#guess {
+    padding-top: 30px;
+}
