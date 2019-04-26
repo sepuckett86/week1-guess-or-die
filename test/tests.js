@@ -13,4 +13,20 @@ test('returns random number between 0 and length of words array', (assert) => {
     assert.equal(result, expected);
 });
 
-//
+// Selects the word from the array with that index and stores in a word variable for use by the guess function (word will need to be scoped in way guess function can read.
+
+// In: array, index
+// Out: word (string)
+
+test('returns first word from input array when index is 0', (assert) => {
+    // Arrange
+    const wordArray = ['abc', 'def', 'ghi'];
+    const index = 0;
+    const expected = 'abc';
+
+    // Act
+    const result = wordGenerator(wordArray, index);
+
+    // Assert
+    assert.equal(result, expected);
+})
