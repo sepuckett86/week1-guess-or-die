@@ -52,7 +52,7 @@ test('makes a div to contain letter for each letter of word', (assert) => {
     // Arrange
     const word = 'ab';
     const parentDiv = document.createElement('div');
-    const expected = '<div class="letter-and-line"><div class="letter">A</div><div class="letter-line"></div></div><div class="letter-and-line"><div class="letter">B</div><div class="letter-line"></div></div>';
+    const expected = '<div class="letter-and-line"><div class="letter hidden">A</div><div class="letter-line"></div></div><div class="letter-and-line"><div class="letter hidden">B</div><div class="letter-line"></div></div>';
 
     // Act
     addLetterDivs(word, parentDiv);

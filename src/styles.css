@@ -90,3 +90,7 @@ body {
 #guess {
     padding-top: 30px;
 }
+
+.hidden {
+    visibility: hidden;
+}

@@ -5,6 +5,7 @@ function addLetterDivs(word, parentDiv) {
         childDiv.classList.add('letter-and-line');
         const childLetterDiv = document.createElement('div');
         childLetterDiv.classList.add('letter');
+        childLetterDiv.classList.add('hidden');
         childLetterDiv.textContent = letter;
         const childLetterLineDiv = document.createElement('div');
         childLetterLineDiv.classList.add('letter-line');
