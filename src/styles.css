@@ -70,3 +70,19 @@ body {
         rotate(30deg); 
     background-color: black;
 }
+
+#word {
+    padding-top: 50px;
+}
+
+.letter-line {
+    display: inline-block;
+    margin-right: 2px;
+    height: 5px;
+    width: 50px;
+    background-color: black;
+}
+
+.letter-and-line {
+    display: inline-block;
+}
