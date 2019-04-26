@@ -1,5 +1,6 @@
 import generateRandom from '../src/generateRandom.js';
 import wordGenerator from '../src/wordGenerator.js';
+import addLetterDivs from '../src/addLetterDivs.js';
 
 const test = QUnit.test;
 
@@ -49,7 +50,7 @@ test('returns word at index 2 from input array when index is 2', (assert) => {
 
 test('makes a div to contain letter for each letter of word', (assert) => {
     // Arrange
-    const word = 'ab'
+    const word = 'ab';
     const parentDiv = document.createElement('div');
     const expected = '<div class="letter-and-line"><div class="letter">A</div><div class="letter-line"></div></div><div class="letter-and-line"><div class="letter">B</div><div class="letter-line"></div></div>';
 
@@ -60,19 +61,3 @@ test('makes a div to contain letter for each letter of word', (assert) => {
     const parentContent = parentDiv.innerHTML;
     assert.equal(parentContent, expected);
 });
-
-function addLetterDivs(word, parentDiv) {
-    for(let i = 0; i < word.length; i++) {
-        const letter = word[i].toUpperCase();
-        const childDiv = document.createElement('div');
-        childDiv.classList.add('letter-and-line');
-        const childLetterDiv = document.createElement('div');
-        childLetterDiv.classList.add('letter');
-        childLetterDiv.textContent = letter;
-        const childLetterLineDiv = document.createElement('div');
-        childLetterLineDiv.classList.add('letter-line');
-        childDiv.appendChild(childLetterDiv);
-        childDiv.appendChild(childLetterLineDiv);
-        parentDiv.appendChild(childDiv);
-    }
-}
