@@ -14,10 +14,7 @@ test('returns random number between 0 and length of words array', (assert) => {
     assert.equal(result, expected);
 });
 
-// Selects the word from the array with that index and stores in a word variable for use by the guess function (word will need to be scoped in way guess function can read.
-
-// In: array, index
-// Out: word (string)
+// wordGenerator
 
 test('returns first word from input array when index is 0', (assert) => {
     // Arrange
@@ -45,3 +42,21 @@ test('returns word at index 2 from input array when index is 2', (assert) => {
     assert.equal(result, expected);
 });
 
+// Create the letters of the "Word to Guess". (You might not hide them initially during development so you can "see" that word is loading correctly. Otherwise, you will need to inspect with the Dev Tools)
+
+// In: word
+// Out: nothing, but in function render div elements
+
+test('makes a div to contain letter for each letter of word', (assert) => {
+    // Arrange
+    const word = 'ab'
+    const parentDiv = document.createElement('div');
+    const expected = '<div></div>';
+
+    // Act
+    addLetterDivs(word, parentDiv);
+
+    // Assert
+    const parentContent = parentDiv.innerHTML();
+    assert.equal(parentContent, expected);
+});
