@@ -1,4 +1,5 @@
 import generateRandom from '../src/generateRandom.js';
+import wordGenerator from '../src/wordGenerator.js';
 
 const test = QUnit.test;
 
@@ -29,4 +30,18 @@ test('returns first word from input array when index is 0', (assert) => {
 
     // Assert
     assert.equal(result, expected);
-})
+});
+
+test('returns word at index 2 from input array when index is 2', (assert) => {
+    // Arrange
+    const wordArray = ['abc', 'def', 'ghi'];
+    const index = 2;
+    const expected = 'ghi';
+
+    // Act
+    const result = wordGenerator(wordArray, index);
+
+    // Assert
+    assert.equal(result, expected);
+});
+
