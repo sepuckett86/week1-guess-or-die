@@ -60,3 +60,12 @@ test('makes a div to contain letter for each letter of word', (assert) => {
     const parentContent = parentDiv.innerHTML();
     assert.equal(parentContent, expected);
 });
+
+function addLetterDivs(word, parentDiv) {
+    for(let i = 0; i < word.length; i++) {
+        const letter = word[i];
+        const childDiv = document.createElement('div');
+        childDiv.
+        parentDiv.appendChild(childDiv)
+    }
+}
