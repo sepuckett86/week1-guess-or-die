@@ -1,6 +1,7 @@
 import generateRandom from '../src/generateRandom.js';
 import wordGenerator from '../src/wordGenerator.js';
 import addLetterDivs from '../src/addLetterDivs.js';
+import checkIfCorrectInput from '../src/checkIfCorrectInput.js';
 
 const test = QUnit.test;
 
@@ -94,12 +95,42 @@ test('return true if input a lowercase letter', (assert) => {
     assert.equal(actual, expected);
 });
 
-function checkIfCorrectInput(inputString) {
-    if(inputString.length > 1) {
-        return false;
-    } else if(inputString.charCodeAt(0) < 65 || inputString.charCodeAt(0) > 122) {
-        return false;
-    } else {
+// checkIfGuessed
+
+test('return true if letter in array', (assert) => {
+    const inputString = 'a';
+    const letterArray = ['a', 'b', 'c'];
+    const expected = true;
+
+    const actual = checkIfGuessed(inputString, letterArray);
+
+    assert.equal(actual, expected);
+});
+
+test('return false if letter not array', (assert) => {
+    const inputString = 'd';
+    const letterArray = ['a', 'b', 'c'];
+    const expected = false;
+
+    const actual = checkIfGuessed(inputString, letterArray);
+
+    assert.equal(actual, expected);
+});
+
+test('adds letter to letterArray', (assert) => {
+    const inputString = 'd';
+    let letterArray = ['a', 'b', 'c'];
+    const expected = ['a', 'b', 'c', 'd'];
+
+    const check = checkIfGuessed(inputString, letterArray);  
+
+    assert.equal(letterArray, expected);
+});
+
+function checkIfGuessed(inputString, letterArray) {
+    if(letterArray.includes(inputString)) {
         return true;
+    } else {
+        return false;
     }
 }
