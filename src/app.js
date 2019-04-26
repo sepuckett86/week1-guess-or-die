@@ -4,6 +4,8 @@ import wordGenerator from './wordGenerator.js';
 import addLetterDivs from './addLetterDivs.js';
 
 const wordSection = document.getElementById('word');
+const submitButton = document.getElementById('submitButton');
+const inputString = document.getElementById('guessInput');
 
 // Run tested functions to load word
 function loadWord() {
@@ -13,3 +15,7 @@ function loadWord() {
 }
 
 loadWord();
+
+submitButton.addEventListener('click', () => {
+    console.log(inputString.value);
+});
