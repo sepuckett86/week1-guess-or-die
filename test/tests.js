@@ -51,21 +51,28 @@ test('makes a div to contain letter for each letter of word', (assert) => {
     // Arrange
     const word = 'ab'
     const parentDiv = document.createElement('div');
-    const expected = '<div></div>';
+    const expected = '<div class="letter-and-line"><div class="letter">A</div><div class="letter-line"></div></div><div class="letter-and-line"><div class="letter">B</div><div class="letter-line"></div></div>';
 
     // Act
     addLetterDivs(word, parentDiv);
 
     // Assert
-    const parentContent = parentDiv.innerHTML();
+    const parentContent = parentDiv.innerHTML;
     assert.equal(parentContent, expected);
 });
 
 function addLetterDivs(word, parentDiv) {
     for(let i = 0; i < word.length; i++) {
-        const letter = word[i];
+        const letter = word[i].toUpperCase();
         const childDiv = document.createElement('div');
-        childDiv.
-        parentDiv.appendChild(childDiv)
+        childDiv.classList.add('letter-and-line');
+        const childLetterDiv = document.createElement('div');
+        childLetterDiv.classList.add('letter');
+        childLetterDiv.textContent = letter;
+        const childLetterLineDiv = document.createElement('div');
+        childLetterLineDiv.classList.add('letter-line');
+        childDiv.appendChild(childLetterDiv);
+        childDiv.appendChild(childLetterLineDiv);
+        parentDiv.appendChild(childDiv);
     }
 }
