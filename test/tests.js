@@ -57,15 +57,49 @@ test('makes a div to contain letter for each letter of word', (assert) => {
     assert.equal(parentContent, expected);
 });
 
-// checkIfLetter
+// checkIfCorrectInput
 test('return false if not a letter', (assert) => {
     // Arrange
     const inputString = 'notaletteriamastring';
     const expected = false;
 
     // Act
-    const actual = checkIfLetter(inputString);
+    const actual = checkIfCorrectInput(inputString);
 
     // Assert
     assert.equal(actual, expected);
 });
+
+test('return true if input a capital letter', (assert) => {
+    // Arrange
+    const inputString = 'A';
+    const expected = true;
+
+    // Act
+    const actual = checkIfCorrectInput(inputString);
+
+    // Assert
+    assert.equal(actual, expected);
+});
+
+test('return true if input a lowercase letter', (assert) => {
+    // Arrange
+    const inputString = 'z';
+    const expected = true;
+
+    // Act
+    const actual = checkIfCorrectInput(inputString);
+
+    // Assert
+    assert.equal(actual, expected);
+});
+
+function checkIfCorrectInput(inputString) {
+    if(inputString.length > 1) {
+        return false;
+    } else if(inputString.charCodeAt(0) < 65 || inputString.charCodeAt(0) > 122) {
+        return false;
+    } else {
+        return true;
+    }
+}
