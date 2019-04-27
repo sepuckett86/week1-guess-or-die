@@ -2,6 +2,8 @@ import words from './words.js';
 import generateRandom from './generateRandom.js';
 import wordGenerator from './wordGenerator.js';
 import addLetterDivs from './addLetterDivs.js';
+import checkIfCorrectInput from './checkIfCorrectInput.js';
+import checkIfGuessed from './checkIfGuessed.js';
 
 const wordSection = document.getElementById('word');
 const submitButton = document.getElementById('submitButton');
@@ -15,7 +17,18 @@ function loadWord() {
 }
 
 loadWord();
+let guessedArray = [];
+// let guessCount = 0;
 
 submitButton.addEventListener('click', () => {
-    console.log(inputString.value);
+    const input = inputString.value;
+    // guess
+    if(!checkIfCorrectInput(input)) {
+        alert('Incorrect Input!');
+        return;
+    }
+    if(checkIfGuessed(input, guessedArray)) {
+        alert('You guessed this already');
+    }
+
 });

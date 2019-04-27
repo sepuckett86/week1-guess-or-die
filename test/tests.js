@@ -2,6 +2,7 @@ import generateRandom from '../src/generateRandom.js';
 import wordGenerator from '../src/wordGenerator.js';
 import addLetterDivs from '../src/addLetterDivs.js';
 import checkIfCorrectInput from '../src/checkIfCorrectInput.js';
+import checkIfGuessed from '../src/checkIfCorrectInput.js';
 
 const test = QUnit.test;
 
@@ -121,16 +122,7 @@ test('adds letter to letterArray', (assert) => {
     const inputString = 'd';
     let letterArray = ['a', 'b', 'c'];
     const expected = ['a', 'b', 'c', 'd'];
-
-    const check = checkIfGuessed(inputString, letterArray);  
-
-    assert.equal(letterArray, expected);
+    checkIfGuessed(inputString, letterArray);
+    const actual = letterArray;
+    assert.deepEqual(actual, expected);
 });
-
-function checkIfGuessed(inputString, letterArray) {
-    if(letterArray.includes(inputString)) {
-        return true;
-    } else {
-        return false;
-    }
-}
