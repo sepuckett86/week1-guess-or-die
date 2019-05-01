@@ -10,9 +10,11 @@ const submitButton = document.getElementById('submitButton');
 const inputString = document.getElementById('guessInput');
 
 // Run tested functions to load word
+
+let word = '';
 function loadWord() {
     const index = generateRandom(words.length);
-    const word = wordGenerator(words, index);
+    word = wordGenerator(words, index);
     addLetterDivs(word, wordSection);
 }
 

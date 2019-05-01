@@ -2,7 +2,7 @@ import generateRandom from '../src/generateRandom.js';
 import wordGenerator from '../src/wordGenerator.js';
 import addLetterDivs from '../src/addLetterDivs.js';
 import checkIfCorrectInput from '../src/checkIfCorrectInput.js';
-import checkIfGuessed from '../src/checkIfCorrectInput.js';
+import checkIfGuessed from '../src/checkIfGuessed.js';
 
 const test = QUnit.test;
 
@@ -108,7 +108,7 @@ test('return true if letter in array', (assert) => {
     assert.equal(actual, expected);
 });
 
-test('return false if letter not array', (assert) => {
+test('return false if letter not in array', (assert) => {
     const inputString = 'd';
     const letterArray = ['a', 'b', 'c'];
     const expected = false;
